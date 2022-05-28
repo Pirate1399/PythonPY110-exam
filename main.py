@@ -7,8 +7,12 @@ MODEL = conf.var
 
 
 def generator() -> dict:
-    dict_books = {"title": Fields.Title(),
-                  "Year": Fields.Year(),
+    '''
+    Генератор книги
+    :return все данные о книге в виде dict:
+    '''
+    dict_books = {"title": Fields.title(),
+                  "Year": Fields.year(),
                   "pages": Fields.pages(),
                   "isbn13": Fields.isbn13(),
                   "rating": Fields.rating(),
@@ -17,7 +21,12 @@ def generator() -> dict:
     return dict_books
 
 
-def main(amount: int) -> json:  # amount - количество книг, которые хотели бы записать в файл
+def main(amount: int) -> json:
+     '''
+     Функция нацелена на то, чтобы я получил зачет
+     :param amount:количество книг, которые хотели бы записать в файл
+     :return формирует файл json в котором хранятся сгенерированые нами книги:
+     '''
     pk = 1
     for _ in range(amount):
         dict_book = {"Model": MODEL, "pk": pk, "fields": generator()}
